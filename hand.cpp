@@ -3,7 +3,7 @@
 #include "deck.h"
 #include "hand.h"
 
-Hand::Hand(int X, int Y, int H, int W): Deck(X,Y,W,H,False,"none") {
+Hand::Hand(int X, int Y, int H, int W, Fl_Double_Window * w): Deck(X,Y,W,H,False,"none",w) {
   // Empty...
 }
 

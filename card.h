@@ -7,7 +7,7 @@ class Card: public Fl_Box {
  public:
   Card(int X, int Y, int W, int H);
   Card();
-  Card(int,int,char,int);
+  Card(int,int,char,int,Fl_Double_Window *);
   void face_up();
   void face_down();
   void move_card(int X,int Y);
@@ -20,6 +20,8 @@ class Card: public Fl_Box {
   int number;
   Fl_JPEG_Image * card_image;
   Fl_JPEG_Image * back_card_image;
+  Fl_Double_Window * w;
+
 };
 
 #else

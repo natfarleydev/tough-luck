@@ -3,7 +3,7 @@
 #include "card.h"
 #include "deck.h"
 
-Pile::Pile(int X, int Y) : Deck(X,Y,151,220,True,"standard") {}
+Pile::Pile(int X, int Y, Fl_Double_Window * w) : Deck(X,Y,151,220,True,"standard",w) {}
 void Pile::draw_first() {
   card_vector[0]->face_up();
   fl_message("you should see a card now...");
@@ -13,15 +13,15 @@ void Pile::random_card() {
   fl_message("This function may eventually give a random card and return a card");
 }
 
-Card * Pile::give_joker_black() {
-  // This function is a proof of concept, that get_suit and get_no work
-  char suit_temp = joker_black->get_suit();
-  int number_temp = joker_black->get_no();
-  fprintf(stderr, "I'm about to give you a joker, which has the values %c and %d.\n", suit_temp, number_temp);
-  joker_black->face_up();
-  joker_black->show();
-  return joker_black;
-}
+// Card * Pile::give_joker_black() {
+//   // This function is a proof of concept, that get_suit and get_no work
+//   char suit_temp = joker_black->get_suit();
+//   int number_temp = joker_black->get_no();
+//   fprintf(stderr, "I'm about to give you a joker, which has the values %c and %d.\n", suit_temp, number_temp);
+//   joker_black->face_up();
+//   joker_black->show();
+//   return joker_black;
+// }
 
 int Pile::handle(int event) {
   switch(event) {

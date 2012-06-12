@@ -7,10 +7,10 @@
 
 class Pile: public Deck {
 public:
-  Pile(int X, int Y);
+  Pile(int X, int Y, Fl_Double_Window * w);
   void draw_first();
   void random_card();
-  Card * give_joker_black();
+  //  Card * give_joker_black();
 private:
   int handle(int event);
 };

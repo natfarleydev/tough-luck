@@ -45,5 +45,12 @@ class Card;
 extern Fl_Double_Window * w_main;
 extern Hand * hand;
 extern Card * joker_black; //, joker_red;
+
+void null(Fl_Widget* q , void* a);
+void about_dialog(Fl_Widget*, void*);
+void menu_quit (Fl_Widget* w, void* data);
+
+
+
 #else
 #endif

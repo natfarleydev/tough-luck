@@ -1,7 +1,9 @@
 #include "defs.h"
 #include "deck.h"
 
-Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck) : Fl_Box(X,Y,W,H) {
+Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck, Fl_Double_Window * w) : Fl_Box(X,Y,W,H) {
+  
+  w_main = w;
   back_card_image = new Fl_JPEG_Image("Unsuited/back.jpg");
   
   char suit[4] = {'h','d','s','c'};
@@ -11,7 +13,7 @@ Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck) : Fl
     // Create cards in order of number, then in order of suit[]
     for(int i = 2; i < 15; i++){
       for(int j = 0; j < 4; j++) {
-	card_vector.push_back(new Card(X,Y,suit[j],i));
+	card_vector.push_back(new Card(X,Y,suit[j],i,w_main));
       }
     }
 

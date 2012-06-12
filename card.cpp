@@ -13,19 +13,21 @@ Card::Card(): Fl_Box(200,200,151,220) {
   number = 0;
 }
 
-Card::Card(int X, int Y, char suit, int number): Fl_Box(X,Y,151,220) {
+Card::Card(int X, int Y, char suit, int number, Fl_Double_Window * w): Fl_Box(X,Y,151,220) {
 
-    // This stringstream method is from http://www.cplusplus.com/forum/articles/9645/
-    stringstream temp_convert;
-    temp_convert << number;
-    string filename;
+  w_main = w; // pointing to the window.
+  
+  // This stringstream method is from http://www.cplusplus.com/forum/articles/9645/
+  stringstream temp_convert;
+  temp_convert << number;
+  string filename;
     string ext = ".jpg"; // to make it easier to change to png later.
-
+    
     if(suit == 'h') filename = "Hearts/" + temp_convert.str() + ext.c_str();
     if(suit == 'c') filename = "Clubs/" + temp_convert.str() + ext.c_str();
     if(suit == 's') filename = "Spades/" + temp_convert.str() + ext.c_str();
     if(suit == 'd') filename = "Diamonds/" + temp_convert.str() + ext.c_str();
-
+    
     card_image = new Fl_JPEG_Image(filename.c_str());
     back_card_image = new Fl_JPEG_Image("Unsuited/back.jpg");
 
