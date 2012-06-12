@@ -8,7 +8,6 @@
 class Hand: public Deck{
 public:
   Hand(int X, int Y, int H, int W);
-  void take_card(Card * card);
   void draw_hand();
 };
 

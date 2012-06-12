@@ -10,8 +10,6 @@ public:
   Pile(int X, int Y);
   void draw_first();
   void random_card();
-  Card * give_card(int i);
-  Card * give_card();
   Card * give_joker_black();
 private:
   int handle(int event);

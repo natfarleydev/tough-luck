@@ -12,6 +12,9 @@ public:
 protected:
   vector<Card*> card_vector;
   Fl_JPEG_Image * back_card_image;
+  void take_card(Card * card);
+  Card * give_card(int i);
+  Card * give_card();
 
 private:
   string type_of_deck;

@@ -13,26 +13,6 @@ void Pile::random_card() {
   fl_message("This function may eventually give a random card and return a card");
 }
 
-
-Card * Pile::give_card(int i) {
-  // Another proof of concept function, so we know what we're handing over.
-  // Note, this is an overloaded function
-  char suit_temp = card_vector[i]->get_suit();
-  int number_temp = card_vector[i]->get_no();
-  fprintf(stderr,"I'm about to give the card %c and %d.\n", suit_temp, number_temp);
-  
-  Card * card_temp = card_vector[i];
-  card_vector.erase(card_vector.begin()+i);
-  return card_temp;
-}
-
-Card * Pile::give_card() {
-  int i = rand() % card_vector.size();
-  fprintf(stderr,"lololol");
-  give_card(i);
-}
-
-
 Card * Pile::give_joker_black() {
   // This function is a proof of concept, that get_suit and get_no work
   char suit_temp = joker_black->get_suit();

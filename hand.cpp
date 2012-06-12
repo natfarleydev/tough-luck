@@ -6,10 +6,7 @@
 Hand::Hand(int X, int Y, int H, int W): Deck(X,Y,W,H,False,"none") {
   // Empty...
 }
-void Hand::take_card(Card * card) {
-  // This function gives the hand it's card, but does not show it.
-  card_vector.push_back(card);
-}
+
 void Hand::draw_hand() {
   // TODO show the cards in order.
   for(int i = 0; i<card_vector.size(); i++) {
