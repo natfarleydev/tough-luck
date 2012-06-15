@@ -3,7 +3,10 @@
 #include "card.h"
 #include "deck.h"
 
-Pile::Pile(int X, int Y, Fl_Double_Window * w) : Deck(X,Y,151,220,True,"standard",w) {}
+Pile::Pile(int X, int Y, State s) : Deck(X,Y,151,220,True,"standard",s) {
+  fprintf(stderr, "A Pile was created\n");
+}
+
 void Pile::draw_first() {
   card_vector[0]->face_up();
   fl_message("you should see a card now...");

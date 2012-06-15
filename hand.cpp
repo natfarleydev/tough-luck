@@ -3,7 +3,7 @@
 #include "deck.h"
 #include "hand.h"
 
-Hand::Hand(int X, int Y, int H, int W, Fl_Double_Window * w): Deck(X,Y,W,H,False,"none",w) {
+Hand::Hand(int X, int Y, int H, int W, State s): Deck(X,Y,W,H,False,"none",s) {
   // Empty...
 }
 
@@ -18,5 +18,13 @@ void Hand::draw_hand() {
     w_main->add(card_vector[i]);
   }
   w_main->redraw();
+}
+
+int Hand::size() {
+  return card_vector.size();
+}
+
+Card * Hand::get_card(int i) {
+  return card_vector[i];
 }
 

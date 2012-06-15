@@ -11,6 +11,7 @@
 #include <ctime>
 #include <cmath>
 #include <iomanip>
+#include <algorithm>
 
 
 // FLTK Libraries
@@ -39,12 +40,22 @@ using namespace std;
 
 class Hand; // Needed for the special global variables
 class Card;
-// TODO sort it to get rid of as many globals as possible.
+class Deck;
+class Pile;
+class Arena;
 
-// This is declaring that this will be a global variable.
-extern Fl_Double_Window * w_main;
-extern Hand * hand;
-extern Card * joker_black; //, joker_red;
+struct State {
+  // Anything that goes in here is initialised when the game starts
+  // As they are objects needed for the game, most objects need pointers to these.
+  // Also as a side effect, the objects must be given the state *after* they have all been initialised.
+  Fl_Double_Window * w;    
+  vector<Hand*>::iterator hv;
+  Pile * p;
+  Arena * a;
+
+  State(Fl_Double_Window *, vector<Hand*>::iterator, Pile *, Arena *);
+  State(); //just to stop g++ complaining
+};
 
 void null(Fl_Widget* q , void* a);
 void about_dialog(Fl_Widget*, void*);

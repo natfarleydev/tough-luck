@@ -1,11 +1,12 @@
 #include "defs.h"
 #include "deck.h"
+#include "hand.h"
 
-Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck, Fl_Double_Window * w) : Fl_Box(X,Y,W,H) {
-  
-  w_main = w;
+Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck, State s) : Fl_Box(X,Y,W,H) {
+  state = s;
+  w_main = s.w;
   back_card_image = new Fl_JPEG_Image("Unsuited/back.jpg");
-  
+
   char suit[4] = {'h','d','s','c'};
   
   if(type_of_deck=="standard") {
@@ -13,7 +14,7 @@ Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck, Fl_D
     // Create cards in order of number, then in order of suit[]
     for(int i = 2; i < 15; i++){
       for(int j = 0; j < 4; j++) {
-	card_vector.push_back(new Card(X,Y,suit[j],i,w_main));
+	card_vector.push_back(new Card(X,Y,suit[j],i,state,this,4*(i-2)+j));
       }
     }
 
@@ -36,18 +37,27 @@ Deck::Deck(int X, int Y, int W, int H, bool show_flag, string type_of_deck, Fl_D
   
   // Either way, show the box so we can click on it.
   this->show();
+
+  fprintf(stderr, "A Deck was shown");
 }
 
 void Deck::take_card(Card * card) {
   // This function gives the deck it's card, but does not show it.
+
+  // Just so that the card know's it's changed hands.
+  card->change_hand(this,card_vector.size());
+    
   card_vector.push_back(card);
 }
 
 Card * Deck::give_card(int i) {
   // Another proof of concept function, so we know what we're handing over.
   // Note, this is an overloaded function
+  // TODO known bug, this doesn't properly output ANYTHING.
+  
   char suit_temp = card_vector[i]->get_suit();
   int number_temp = card_vector[i]->get_no();
+
   fprintf(stderr,"I'm about to give the card %c and %d.\n", suit_temp, number_temp);
 
   Card * card_temp = card_vector[i];
@@ -58,6 +68,10 @@ Card * Deck::give_card(int i) {
 
 Card * Deck::give_card() {
   int i = rand() % card_vector.size();
-  fprintf(stderr,"lololol");
+  fprintf(stderr,"random: ");
   give_card(i);
+}
+
+void Deck::new_state(State s) {
+  state = s;
 }

@@ -7,8 +7,10 @@
 
 class Hand: public Deck{
  public:
-  Hand(int X, int Y, int H, int W, Fl_Double_Window * w);
+  Hand(int X, int Y, int H, int W, State s);
   void draw_hand();
+  int size();
+  Card * get_card(int i);
 };
 
 #else
