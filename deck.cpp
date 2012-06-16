@@ -61,7 +61,8 @@ Card * Deck::give_card(int i) {
   fprintf(stderr,"I'm about to give the card %c and %d.\n", suit_temp, number_temp);
 
   Card * card_temp = card_vector[i];
-  card_vector.erase(card_vector.begin()+i);
+  // card_vector.erase(card_vector.begin()+i);
+  card_vector.erase(find(card_vector.begin(),card_vector.end(),card_vector[i]));
   return card_temp;
 }
 

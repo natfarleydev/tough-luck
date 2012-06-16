@@ -26,7 +26,6 @@ void menu_quit (Fl_Widget* w, void* data) {
   if(fl_choice("Are you sure you want quit?", "&No", "&Yes", "&Cancel")==1) ((Fl_Window*)data)->hide();
 }
 
-
 int main() {
 
   // Random Seed

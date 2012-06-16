@@ -60,6 +60,7 @@ struct State {
 void null(Fl_Widget* q , void* a);
 void about_dialog(Fl_Widget*, void*);
 void menu_quit (Fl_Widget* w, void* data);
+void move_card(Deck *,Deck *,Card *);
 
 
 

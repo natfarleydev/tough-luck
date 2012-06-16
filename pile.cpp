@@ -14,6 +14,7 @@ void Pile::draw_first() {
 
 void Pile::random_card() {
   fl_message("This function may eventually give a random card and return a card");
+  state.hv[0]->take_card(this->give_card());
 }
 
 // Card * Pile::give_joker_black() {

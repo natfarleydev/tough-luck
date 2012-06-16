@@ -83,20 +83,27 @@ int Card::handle(int event) {
   case FL_DRAG:
     // TODO offset will allow the card to be dragged by the point you pick it at.
     position(Fl::event_x() + offset[0], Fl::event_y() + offset[1]);
-    w_main -> redraw();
+    // Card * temp_card = this_deck->give_card();
+    w_main->redraw();
     return 1;
-  case FL_RELEASE: 
-    // TODO this vv
-    // find() where the card is in hand_vector
-    // Once found, hand it over to the only pile the player can ever put it in: the arena
-    // TODO fix it for multiple hands
 
-    Hand * temp_hand = (Hand *)this_deck;
-    fprintf(stderr, "I'm about to...");
-    Card * temp_card = this_deck->give_card();
-    fprintf(stderr, "I'm about to... ");
-    state.a->take_card(temp_card);
-    fprintf(stderr, "I'm about to...\n");
-    temp_hand->draw_hand();
+  case FL_RELEASE: 
+    // temp_hand->draw_hand();
+    Hand * hand_temp = (Hand *)this_deck;
+
+    // Give the card to where it's going.
+    // TODO this bit still doesn't operate properly
+    // When the card is put back, it works the first time,
+    // but not the second. Almost like it doesn't properly 
+    // change_hand().
+
+    // Of course it wouldn't, it's been moved back by other 
+    // cards doing thier thing, I need to integrate change_hand()
+    // into the redrawing process...
+    this_deck->take_card(this_deck->give_card(this_index));
+    
+    // Redraw the hand after the card is placed.
+    hand_temp->draw_hand();
+
     return 1; } //end of switch
 }

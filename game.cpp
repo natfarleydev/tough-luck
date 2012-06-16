@@ -57,11 +57,11 @@ void Game::begin() {
 
   arena = new Arena(300,100+menu_height,state);
   w_main->add(arena);
-  state.a = arena;
+  // state.a = arena;
 
-  arena->new_state(state);
-  hand_vector[0]->new_state(state);
-  pile->new_state(state);
+  // arena->new_state(state);
+  // hand_vector[0]->new_state(state);
+  // pile->new_state(state);
 
   // TODO remember to make this for all hands
   for(int i = 0; i<7; i++) {

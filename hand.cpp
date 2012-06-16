@@ -15,6 +15,9 @@ void Hand::draw_hand() {
     int dflpc = floor( (double)w()/(double)card_vector.size() );
     card_vector[i]->position(x()+i*dflpc,y());
     card_vector[i]->show();
+
+    // add a sorting algorithm here...
+    card_vector[i]->change_hand((Deck *)this,i);
     w_main->add(card_vector[i]);
   }
   w_main->redraw();
