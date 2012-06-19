@@ -83,7 +83,7 @@ int Card::handle(int event) {
   case FL_DRAG:
     // TODO offset will allow the card to be dragged by the point you pick it at.
     position(Fl::event_x() + offset[0], Fl::event_y() + offset[1]);
-    // Card * temp_card = this_deck->give_card();
+    // Card temp_card = this_deck->give_card();
     w_main->redraw();
     return 1;
 
@@ -99,7 +99,7 @@ int Card::handle(int event) {
 
     // Of course it wouldn't, it's been moved back by other 
     // cards doing thier thing, I need to integrate change_hand()
-    // into the redrawing process...
+    // into the redrawing process.!..
     this_deck->take_card(this_deck->give_card(this_index));
     
     // Redraw the hand after the card is placed.

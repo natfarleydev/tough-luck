@@ -9,7 +9,7 @@ Arena::Arena(int X, int Y, State s): Deck(X,Y,151,220,True,"none",s) {
   state = s;
 }
 
-bool Arena::is_card_valid(Card * card) {
+bool Arena::is_card_valid(Card* card) {
   vector<Card*>::iterator it;
 
   if(card_vector.empty()) return True;

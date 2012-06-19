@@ -11,7 +11,7 @@ public:
   Pile(int X, int Y, State s);
   void draw_first();
   void random_card();
-  //  Card * give_joker_black();
+  //  Card* give_joker_black();
 private:
   int handle(int event);
 };

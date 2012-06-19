@@ -10,7 +10,7 @@ class Hand: public Deck{
   Hand(int X, int Y, int H, int W, State s);
   void draw_hand();
   int size();
-  Card * get_card(int i);
+  Card* get_card(int i);
 };
 
 #else

@@ -8,7 +8,7 @@
 class Arena: public Deck {
  public:
   Arena(int X, int Y, State s);
-  bool is_card_valid(Card * card);
+  bool is_card_valid(Card* card);
  private:
   Fl_JPEG_Image * empty_arena_image;
 };

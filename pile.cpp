@@ -14,10 +14,9 @@ void Pile::draw_first() {
 
 void Pile::random_card() {
   fl_message("This function may eventually give a random card and return a card");
-  state.hv[0]->take_card(this->give_card());
 }
 
-// Card * Pile::give_joker_black() {
+// Card* Pile::give_joker_black() {
 //   // This function is a proof of concept, that get_suit and get_no work
 //   char suit_temp = joker_black->get_suit();
 //   int number_temp = joker_black->get_no();
