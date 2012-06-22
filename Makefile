@@ -12,7 +12,7 @@ LDFLAGS=-L/usr/lib/x86_64-linux-gnu -Wl,-Bsymbolic-functions -Wl,-z,relro -lfltk
 # Put a list of all the files we want here. It doesn't matter what order (I think).
 # *ONLY* include cpp files, header files are included if they're mentioned in 
 # the cpp file.                                                                                                                                                   
-SOURCES=main.cpp card.cpp deck.cpp pile.cpp hand.cpp
+SOURCES=main.cpp card.cpp deck.cpp pile.cpp hand.cpp game.cpp arena.cpp
 
 # This line essentially says, take the list of SOURCES, and put an '.o' on the
 # end instead of '.cpp'.
